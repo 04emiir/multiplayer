@@ -11,14 +11,16 @@ public class PUNScript : MonoBehaviourPunCallbacks {
     public TextMeshProUGUI buttonText;
     // Start is called before the first frame update
     public void OnClickConnect() {
-        PhotonNetwork.NickName = usernameInput.text;
-        buttonText.fontSize = 56;
-        buttonText.text = "Conectando...";
-        PhotonNetwork.ConnectUsingSettings();
+        if (usernameInput.text.Length >= 1) {
+            PhotonNetwork.NickName = usernameInput.text;
+            buttonText.fontSize = 56;
+            buttonText.text = "Conectando...";
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public override void OnConnectedToMaster() {
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("LobbyScene");
     }
 }
 
