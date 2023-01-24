@@ -15,6 +15,7 @@ public class PUNScript : MonoBehaviourPunCallbacks {
             PhotonNetwork.NickName = usernameInput.text;
             buttonText.fontSize = 56;
             buttonText.text = "Conectando...";
+            PhotonNetwork.AutomaticallySyncScene= true;
             PhotonNetwork.ConnectUsingSettings();
         }
     }
